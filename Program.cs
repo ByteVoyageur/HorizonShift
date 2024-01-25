@@ -59,7 +59,7 @@ class WallpaperChanger
     private async Task<string> DownloadImageAsync(HttpClient client, string imageUrl)
     {
         var response = await client.GetAsync(imageUrl, HttpCompletionOption.ResponseHeadersRead);
-        var imagePath = Path.Combine(Path.GetTempPath(), "wallpaper.jpg");
+        var imagePath = Path.Combine("C:\\Users\\Bi\\OneDrive\\img\\Wallpapers", $"wallpaper_{DateTime.Now:yyyyMMddHHmmss}.jpg");
         using (var fs = new FileStream(imagePath, FileMode.Create))
         {
             await response.Content.CopyToAsync(fs);
